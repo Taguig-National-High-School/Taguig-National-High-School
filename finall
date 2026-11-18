@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Taguig National High School">
+<meta property="og:description" content="Looking Beyond the Horizon">
+<meta property="og:image" content="https://taguig-national-high-school.github.io/Taguig-National-High-School/hero_section.jpg">
+<meta property="og:url" content="https://taguig-national-high-school.github.io/Taguig-National-High-School/">
+<title>Taguig National High School</title>
+
+<style>
+:root {
+    --navy: #09264a;
+    --navy2: #123b68;
+    --gold: #e1b94f;
+    --pale: #f4f7fb;
+    --ink: #17283d;
+    --muted: #65758a;
+    --white: #fff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.6;
+}
+
+.topbar {
+    background: var(--navy);
+    color: #eaf0f8;
+    padding: 8px 6%;
+    font-size: 11px;
+    letter-spacing: .5px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+header {
+    height: auto;
+    min-height: 82px;
+    padding: 14px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-shadow: 0 3px 15px #09264a12;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 1.25;
+    letter-spacing: .4px;
+}
+
+.brand img {
+    width: 49px;
+    height: 49px;
+    object-fit: contain;
+}
+
+.brand small {
+    display: block;
+    color: #987321;
+    font-size: 9px;
+    letter-spacing: 1.7px;
+    margin-top: 4px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #34465d;
+    font-size: 11px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+nav a:hover {
+    color: #b48b27;
+}
+
+.menu-btn {
+    display: none;
+    border: 0;
+    background: none;
+    color: var(--navy);
+    font-size: 25px;
+}
+
+.hero {
+    min-height: 540px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 75px 7%;
+    position: relative;
+    background: linear-gradient(110deg,rgba(5,25,51,.88),rgba(7,36,68,.63)),url('hero_section.jpg') center/cover no-repeat;
+}
+
+.hero:after {
+    content: "";
+    position: absolute;
+    inset: 16px;
+    border: 1px solid #ffffff55;
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 850px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero .welcome {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(35px,6vw,67px);
+    line-height: 1.12;
+    margin: 18px 0 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: clamp(15px,2vw,19px);
+    color: #f0f4f9;
+    max-width: 690px;
+    margin: 0 auto;
+}
+
+.hero-btn {
+    display: inline-block;
+    margin-top: 28px;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 800;
+    text-decoration: none;
+    padding: 13px 25px;
+    border-radius: 4px;
+    font-size: 12px;
+    letter-spacing: .6px;
+    transition: .2s;
+}
+
+.hero-btn:hover {
+    background: white;
+    transform: translateY(-2px);
+}
+
+.section {
+    padding: 76px 7%;
+}
+
+.section-head {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 38px;
+}
+
+.section-head .eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    color: #a47b1f;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-head h2 {
+    font-size: clamp(28px,4vw,40px);
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 9px 0 10px;
+}
+
+.section-head p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    background: var(--pale);
+}
+
+.about img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 14px 14px 0 var(--gold);
+}
+
+.about-copy .eyebrow {
+    font-size: 11px;
+    font-weight: 800;
+    color: #a47b1f;
+    letter-spacing: 2px;
+}
+
+.about-copy h2 {
+    font-size: clamp(29px,4vw,42px);
+    line-height: 1.2;
+    color: var(--navy);
+    margin: 12px 0 18px;
+}
+
+.about-copy p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 13px;
+    line-height: 1.85;
+}
+
+.info-strip {
+    display: flex;
+    gap: 25px;
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid #dce4ed;
+}
+
+.info-strip strong {
+    font-size: 27px;
+    color: var(--navy);
+    display: block;
+}
+
+.info-strip span {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.dark {
+    background: var(--navy);
+    color: white;
+}
+
+.dark .section-head h2 {
+    color: white;
+}
+
+.dark .section-head p {
+    color: #d1dbea;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 22px;
+}
+
+.info-card {
+    background: #fff;
+    color: var(--ink);
+    border-radius: 8px;
+    padding: 30px;
+    border-top: 4px solid var(--gold);
+    box-shadow: 0 7px 22px #001a3517;
+}
+
+.info-card h3 {
+    font-size: 24px;
+    color: var(--navy);
+    margin-bottom: 12px;
+}
+
+.info-card p,
+.info-card li {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.85;
+}
+
+.info-card ul {
+    padding-left: 19px;
+    margin-top: 10px;
+}
+
+.values {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 17px;
+}
+
+.value-card {
+    background: white;
+    text-align: center;
+    padding: 27px 15px;
+    border-radius: 8px;
+    border-bottom: 4px solid var(--gold);
+    box-shadow: 0 5px 20px #09264a12;
+}
+
+.value-icon {
+    height: 58px;
+    width: 58px;
+    margin: 0 auto 13px;
+    border-radius: 50%;
+    background: #eaf0f7;
+    color: var(--navy);
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.value-card h3 {
+    font-size: 17px;
+    color: var(--navy);
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.place-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px #09264a16;
+    transition: .25s;
+}
+
+.place-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px #09264a22;
+}
+
+.place-card img {
+    width: 100%;
+    height: 215px;
+    object-fit: cover;
+    display: block;
+    background: #e7edf4;
+}
+
+.place-card .card-body {
+    padding: 19px 20px 22px;
+}
+
+.place-card h3 {
+    color: var(--navy);
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.place-card p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.activities {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 17px;
+}
+
+.activity {
+    background: #fff;
+    border: 1px solid #e3e9f0;
+    border-radius: 7px;
+    padding: 22px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.activity .number {
+    flex: 0 0 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #edf2f8;
+    color: var(--navy);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+}
+
+.activity h3 {
+    color: var(--navy);
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.activity p {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.principal {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 45px;
+    align-items: center;
+    background: var(--pale);
+}
+
+.principal img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 7px solid white;
+    box-shadow: 0 7px 25px #09264a1a;
+}
+
+.principal .eyebrow {
+    color: #a47b1f;
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.principal h2 {
+    font-size: clamp(28px,4vw,39px);
+    color: var(--navy);
+    margin: 10px 0;
+}
+
+.principal h3 {
+    font-size: 20px;
+    color: var(--navy);
+    margin-top: 18px;
+}
+
+.principal p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+footer {
+    background: #061b35;
+    color: #fff;
+    padding: 42px 7% 20px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    align-items: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #ffffff2a;
+}
+
+footer h3 {
+    font-size: 19px;
+    letter-spacing: .5px;
+}
+
+footer .motto {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+footer p {
+    color: #c5d0df;
+    font-size: 12px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding-top: 18px;
+    color: #aebbd0;
+    font-size: 11px;
+}
+
+@media(max-width:900px) {
+    nav {
+        gap: 13px;
+    }
+
+    nav a {
+        font-size: 10px;
+    }
+
+    .grid-cards {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .activities {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px) {
+    .topbar {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .topbar span:last-child {
+        display: none;
+    }
+
+    header {
+        flex-wrap: wrap;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 17px 0 5px;
+        gap: 16px;
+    }
+
+    nav.open {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 490px;
+    }
+
+    .section {
+        padding: 60px 6%;
+    }
+
+    .about,
+    .principal {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .about img {
+        height: 280px;
+        order: 2;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .values {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .grid-cards,
+    .activities {
+        grid-template-columns: 1fr;
+    }
+
+    .place-card img {
+        height: 230px;
+    }
+
+    .principal img {
+        max-width: 280px;
+        height: 310px;
+    }
+
+    .footer-top,
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <span>Department of Education · Taguig City</span>
+    <span>Taguig National High School</span>
+</div>
+
+<header>
+    <a class="brand" href="#home">
+        <img src="schoolLogo.png" alt="TNHS logo" onerror="this.style.display='none'">
+        <span>
+            TAGUIG NATIONAL HIGH SCHOOL
+            <small>LOOKING BEYOND THE HORIZON</small>
+        </span>
+    </a>
+
+    <button class="menu-btn" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+    <nav id="nav">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#vision">VISION & MISSION</a>
+        <a href="#values">VALUES</a>
+        <a href="#buildings">BUILDINGS</a>
+        <a href="#facilities">FACILITIES</a>
+        <a href="#principal">LEADERSHIP</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="welcome">Welcome to</div>
+        <h1>TAGUIG NATIONAL<br>HIGH SCHOOL</h1>
+        <p>
+            Looking Beyond the Horizon — empowering Filipino learners
+            to discover their potential, embrace opportunities, and
+            contribute meaningfully to the future of our nation.
+        </p>
+        <a class="hero-btn" href="#about">DISCOVER OUR SCHOOL ↓</a>
+    </div>
+</section>
+
+<section class="section about" id="about">
+    <img src="principalOffice.jpg" alt="TNHS Principal's Office">
+
+    <div class="about-copy">
+        <div class="eyebrow">GET TO KNOW OUR SCHOOL</div>
+        <h2>A place where learning shapes the future.</h2>
+
+        <p>
+            Taguig National High School, formerly known as Taguig
+            Municipal High School, is one of the educational
+            institutions that has played an important role in the
+            development of education in Taguig City.
+        </p>
+
+        <p>
+            Established on January 8, 1980, as Fort Bonifacio College
+            Annex, the institution eventually developed into an
+            independent school serving generations of learners.
+        </p>
+
+        <p>
+            Today, the school continues to uphold quality, inclusive,
+            and learner-centered education. Its guiding philosophy,
+            "Looking Beyond the Horizon," represents its commitment
+            to helping students pursue opportunities and aspire
+            toward a better future.
+        </p>
+
+        <div class="info-strip">
+            <div>
+                <strong>1980</strong>
+                <span>Year established</span>
+            </div>
+            <div>
+                <strong>TNHS</strong>
+                <span>Taguig City</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section dark" id="vision">
+    <div class="section-head">
+        <div class="eyebrow">OUR PURPOSE</div>
+        <h2>Our Vision and Mission</h2>
+        <p>The guiding principles that shape our school community and the future of every learner.</p>
+    </div>
+
+    <div class="cards">
+        <article class="info-card">
+            <h3>Our Vision</h3>
+            <p>
+                We dream of Filipinos who passionately love their
+                country and whose values and competencies enable them
+                to realize their full potential and contribute
+                meaningfully to building the nation.
+            </p>
+            <br>
+            <p>
+                As a learner-centered public institution, the
+                Department of Education continuously improves itself
+                to better serve its stakeholders.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Our Mission</h3>
+            <p>
+                To protect and promote the right of every Filipino
+                to quality, equitable, culture-based, and complete
+                basic education where:
+            </p>
+
+            <ul>
+                <li>Students learn in a child-friendly, safe, and motivating environment.</li>
+                <li>Teachers facilitate learning and nurture every learner.</li>
+                <li>Administrators and staff ensure a supportive learning environment.</li>
+                <li>Families and communities actively engage in developing lifelong learners.</li>
+            </ul>
+        </article>
+    </div>
+</section>
+
+<section class="section" id="values">
+    <div class="section-head">
+        <div class="eyebrow">WHAT WE STAND FOR</div>
+        <h2>Our Core Values</h2>
+        <p>Four fundamental values that shape responsible and compassionate Filipino citizens.</p>
+    </div>
+
+    <div class="values">
+        <div class="value-card">
+            <div class="value-icon">✦</div>
+            <h3>Maka-Diyos</h3>
+        </div>
+
+        <div class="value-card">
+            <div class="value-icon">♡</div>
+            <h3>Makatao</h3>
+        </div>
+
+        <div class="value-card">
+            <div class="value-icon">❧</div>
+            <h3>Makakalikasan</h3>
+        </div>
+
+        <div class="value-card">
+            <div class="value-icon">⚑</div>
+            <h3>Makabansa</h3>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="buildings" style="background:var(--pale)">
+    <div class="section-head">
+        <div class="eyebrow">LEARNING SPACES</div>
+        <h2>Our Grade Level Buildings</h2>
+        <p>Explore the buildings where students learn, grow, and prepare for their next journey.</p>
+    </div>
+
+    <div class="grid-cards">
+        <article class="place-card">
+            <img src="gr7.jpg" alt="Grade 7 Building">
+            <div class="card-body">
+                <h3>Grade 7 Building</h3>
+                <p>A welcoming learning environment where students begin their junior high school journey.</p>
+            </div>
+        </article>
+
+        <article class="place-card">
+            <img src="gr8.jpg" alt="Grade 8 Building">
+            <div class="card-body">
+                <h3>Grade 8 Building</h3>
+                <p>A place where students continue developing their knowledge, confidence, and abilities.</p>
+            </div>
+        </article>
+
+        <article class="place-card">
+            <img src="gr9.jpg" alt="Grade 9 Building">
+            <div class="card-body">
+                <h3>Grade 9 Building</h3>
+                <p>An environment that encourages academic growth, creativity, and collaboration.</p>
+            </div>
+        </article>
+
+        <article class="place-card">
+            <img src="gr10.jpg" alt="Grade 10 Building">
+            <div class="card-body">
+                <h3>Grade 10 Building</h3>
+                <p>Preparing students for greater responsibilities and their next educational journey.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="section" id="facilities">
+    <div class="section-head">
+        <div class="eyebrow">CAMPUS LIFE</div>
+        <h2>Our School Facilities</h2>
+        <p>Explore the offices and learning spaces that support the school community.</p>
+    </div>
+
+    <div class="grid-cards">
+        <article class="place-card">
+            <img src="principalOffice.jpg" alt="Principal's Office">
+            <div class="card-body">
+                <h3>Principal’s Office</h3>
+                <p>The school office that supports leadership, administration, and school operations.</p>
+            </div>
+        </article>
+
+        <article class="place-card">
+            <img src="guidance.jpg" alt="Guidance Office">
+            <div class="card-body">
+                <h3>Guidance Office</h3>
+                <p>A supportive space offering student counseling, academic advising, and personal development.</p>
+            </div>
+        </article>
+
+        <article class="place-card">
+            <img src="clinic.jpg" alt="School Clinic">
+            <div class="card-body">
+                <h3>Clinic</h3>
+                <p>A school facility that supports students' health and well-being.</p>
+            </div>
+        </article>
+
+        <article class="place-card">
+            <img src="GreenLab.jpg" alt="GreenLab">
+            <div class="card-body">
+                <h3>GreenLab</h3>
+                <p>A learning space that supports environmental awareness and hands-on learning.</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="section" style="background:var(--pale)" id="activities">
+    <div class="section-head">
+        <div class="eyebrow">LIFE BEYOND THE CLASSROOM</div>
+        <h2>School Activities and Experiences</h2>
+        <p>Learning, creativity, teamwork, and leadership come together through school activities.</p>
+    </div>
+
+    <div class="activities">
+        <div class="activity">
+            <span class="number">01</span>
+            <div>
+                <h3>School Booths</h3>
+                <p>Creative displays, games, and student-made activities during school events.</p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <span class="number">02</span>
+            <div>
+                <h3>Intramurals</h3>
+                <p>Friendly competitions, teamwork, school spirit, and sportsmanship.</p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <span class="number">03</span>
+            <div>
+                <h3>Sports Activities</h3>
+                <p>Activities that promote teamwork, discipline, and active living.</p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <span class="number">04</span>
+            <div>
+                <h3>Cultural Programs</h3>
+                <p>Celebrating Filipino culture, traditions, creativity, and performances.</p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <span class="number">05</span>
+            <div>
+                <h3>Science Fair</h3>
+                <p>Discovering new ideas through experiments, exhibits, and competitions.</p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <span class="number">06</span>
+            <div>
+                <h3>Talent Portions</h3>
+                <p>Showcasing creativity through art, music, dancing, and performances.</p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <span class="number">07</span>
+            <div>
+                <h3>Editorial Writing</h3>
+                <p>Developing knowledge, vocabulary, and imagination through reading and writing.</p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <span class="number">08</span>
+            <div>
+                <h3>Environmental Programs</h3>
+                <p>Cleanliness drives, gardening, recycling, and environmental awareness.</p>
+            </div>
+        </div>
+
+        <div class="activity">
+            <span class="number">09</span>
+            <div>
+                <h3>School Organizations</h3>
+                <p>Building leadership, confidence, communication, and teamwork.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section principal" id="principal">
+    <img src="principal.jpg" alt="School Principal">
+
+    <div>
+        <div class="eyebrow">SCHOOL LEADERSHIP</div>
+        <h2>Our School Principal</h2>
+        <p>Guiding the school community in providing quality and learner-centered education.</p>
+
+        <h3>Mr. Nolito R. Estilles</h3>
+        <p>Current School Principal</p>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="footer-top">
+        <div>
+            <h3>TAGUIG NATIONAL HIGH SCHOOL</h3>
+            <div class="motto">LOOKING BEYOND THE HORIZON</div>
+        </div>
+
+        <p>Empowering learners. Building futures.</p>
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 Taguig National High School. All Rights Reserved.</span>
+        <span>Taguig City, Philippines</span>
+    </div>
+</footer>
+
+<script>
+const menuButton = document.querySelector('.menu-btn');
+const nav = document.getElementById('nav');
+
+menuButton.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(open));
+});
+
+nav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+    });
+});
+</script>
+
+</body>
+</html>
