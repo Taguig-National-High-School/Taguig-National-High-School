@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taguig National High School</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f1e9;
+    color: #10213a;
+}
+
+header {
+    background: #081b35;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    display: block;
+    color: #dfbb55;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #dfbb55;
+}
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    padding: 80px 10%;
+    color: white;
+    background:
+    linear-gradient(90deg, rgba(5,20,40,.95),
+    rgba(5,20,40,.45)),
+    url('hero_section.jpg') center/cover;
+}
+
+.hero small {
+    color: #dfbb55;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 9vw, 100px);
+    line-height: .95;
+    margin: 25px 0;
+}
+
+.hero h1 span {
+    color: #dfbb55;
+}
+
+.hero p {
+    max-width: 550px;
+    line-height: 1.8;
+    font-size: 17px;
+    color: #e1e5ec;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 16px 25px;
+    background: #dfbb55;
+    color: #081b35;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.section {
+    padding: 100px 9%;
+}
+
+.label {
+    color: #a17d2c;
+    letter-spacing: 4px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.section h2 {
+    font-size: clamp(35px, 6vw, 65px);
+    margin: 15px 0 25px;
+}
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 15px 15px #dfbb55;
+}
+
+.about p {
+    color: #657080;
+    line-height: 1.9;
+    margin-bottom: 18px;
+    font-size: 16px;
+}
+
+.dark-section {
+    background: #081b35;
+    color: white;
+}
+
+.dark-section h2 {
+    color: #dfbb55;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.card {
+    padding: 40px;
+    background: #102945;
+    border-bottom: 5px solid #dfbb55;
+    border-radius: 8px;
+}
+
+.card h3 {
+    color: #dfbb55;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.card p, .card li {
+    color: #e0e5ed;
+    line-height: 1.9;
+}
+
+.card ul {
+    padding-left: 20px;
+}
+
+.values {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.value {
+    background: white;
+    padding: 35px 15px;
+    text-align: center;
+    border-bottom: 4px solid #dfbb55;
+    border-radius: 8px;
+}
+
+.value h3 {
+    margin-top: 15px;
+    font-size: 19px;
+}
+
+.value span {
+    display: inline-flex;
+    width: 72px;
+    height: 72px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #081b35;
+    color: #dfbb55;
+}
+
+.value svg {
+    width: 34px;
+    height: 34px;
+    fill: currentColor;
+}
+
+.facilities-carousel {
+    position: relative;
+    max-width: 900px;
+    margin: 35px auto 0;
+}
+
+.facilities {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .25);
+}
+
+.facility {
+    min-width: 100%;
+    scroll-snap-align: start;
+    overflow: hidden;
+    background: #102945;
+    border-bottom: 5px solid #dfbb55;
+}
+
+.facility img {
+    width: 100%;
+    height: 470px;
+    display: block;
+    object-fit: cover;
+}
+
+.facility h3 {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 22px;
+    color: #dfbb55;
+    font-size: 22px;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    width: 48px;
+    height: 48px;
+    transform: translateY(-50%);
+    border: 2px solid #dfbb55;
+    border-radius: 50%;
+    background: #081b35;
+    color: #dfbb55;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.carousel-button:hover,
+.carousel-button:focus-visible {
+    background: #dfbb55;
+    color: #081b35;
+}
+
+.carousel-button.prev {
+    left: -24px;
+}
+
+.carousel-button.next {
+    right: -24px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.carousel-dot {
+    width: 11px;
+    height: 11px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #7f8996;
+    cursor: pointer;
+}
+
+.carousel-dot.active {
+    width: 30px;
+    border-radius: 10px;
+    background: #dfbb55;
+}
+
+.principal {
+    text-align: center;
+    background: white;
+}
+
+.principal img {
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid #dfbb55;
+    margin: 25px 0;
+}
+
+.principal h3 {
+    font-size: 27px;
+}
+
+footer {
+    background: #061429;
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+footer span {
+    color: #dfbb55;
+}
+
+footer p {
+    margin-top: 12px;
+    color: #aeb8c7;
+    font-size: 13px;
+}
+
+@media(max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0;
+        font-size: 10px;
+    }
+
+    .hero {
+        min-height: 600px;
+        padding: 50px 7%;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .values {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .facility img {
+        height: 280px;
+    }
+
+    .carousel-button.prev {
+        left: 10px;
+    }
+
+    .carousel-button.next {
+        right: 10px;
+    }
+
+    .section {
+        padding: 70px 7%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        TAGUIG NATIONAL HIGH SCHOOL
+        <span>LOOKING BEYOND THE HORIZON</span>
+    </div>
+
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#vision">VISION & MISSION</a>
+        <a href="#values">VALUES</a>
+        <a href="#facilities">FACILITIES</a>
+        <a href="#principal">LEADERSHIP</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+    <div>
+        <small>WELCOME TO TAGUIG NATIONAL HIGH SCHOOL</small>
+
+        <h1>
+            BEYOND<br>
+            THE <span>HORIZON.</span>
+        </h1>
+
+        <p>
+            Empowering Filipino learners to discover their
+            potential, embrace opportunities, and contribute
+            meaningfully to the future of our nation.
+        </p>
+
+        <a href="#about" class="btn">DISCOVER OUR SCHOOL ↗</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+
+    <div>
+        <div class="label">01 — GET TO KNOW US</div>
+
+        <h2>A Legacy of Learning and Excellence</h2>
+
+        <p>
+            Taguig National High School, formerly known as
+            Taguig Municipal High School, is one of the
+            educational institutions that has played an
+            important role in the development of education
+            in Taguig City.
+        </p>
+
+        <p>
+            Established on January 8, 1980, as Fort Bonifacio
+            College Annex, the institution eventually developed
+            into an independent school serving generations
+            of learners.
+        </p>
+
+        <p>
+            Today, the school continues to uphold quality,
+            inclusive, and learner-centered education.
+            Its guiding philosophy, "Looking Beyond the Horizon,"
+            represents its commitment to helping students
+            pursue opportunities and aspire toward a better future.
+        </p>
+    </div>
+
+    <div>
+        <img src="principalOffice.jpg" alt="TNHS Principal's Office">
+    </div>
+
+</section>
+
+<!-- VISION AND MISSION -->
+<section class="section dark-section" id="vision">
+
+    <div class="label">02 — OUR PURPOSE</div>
+
+    <h2>What Guides Our School</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Our Vision</h3>
+
+            <p>
+                We dream of Filipinos who passionately love
+                their country and whose values and competencies
+                enable them to realize their full potential
+                and contribute meaningfully to building
+                the nation.
+            </p>
+
+            <br>
+
+            <p>
+                As a learner-centered public institution,
+                the Department of Education continuously
+                improves itself to better serve its stakeholders.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Our Mission</h3>
+
+            <p>
+                To protect and promote the right of every
+                Filipino to quality, equitable, culture-based,
+                and complete basic education where:
+            </p>
+
+            <ul>
+                <li>Students learn in a child-friendly, safe,
+                and motivating environment.</li>
+
+                <li>Teachers facilitate learning and nurture
+                every learner.</li>
+
+                <li>Administrators and staff ensure a supportive
+                learning environment.</li>
+
+                <li>Families and communities actively engage
+                in developing lifelong learners.</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="section" id="values">
+
+    <div class="label">03 — WHAT WE STAND FOR</div>
+
+    <h2>Our Core Values</h2>
+
+    <p>
+        Four fundamental values that shape responsible
+        and compassionate Filipino citizens.
+    </p>
+
+    <div class="values">
+
+        <div class="value">
+            <span aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img"><path d="M11 2h2v5h5v2h-5v11h-2V9H6V7h5V2zm-5 7h12v2H6V9z"/></svg>
+            </span>
+            <h3>Maka-Diyos</h3>
+        </div>
+
+        <div class="value">
+            <span aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            </span>
+            <h3>Makatao</h3>
+        </div>
+
+        <div class="value">
+            <span aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img"><path d="M21 3C14 3 7 5.5 7 13c0 2.76 2.24 5 5 5 7.5 0 9-7 9-15zM5 21c1.5-5 4-8 9-10l1.5 1.5C10 15.5 8 18 7 21H5z"/></svg>
+            </span>
+            <h3>Makakalikasan</h3>
+        </div>
+
+        <div class="value">
+            <span aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img"><path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3zm0 2.18L18.5 6.2v4.8c0 4.35-2.78 8.44-6.5 9.7V4.18z"/></svg>
+            </span>
+            <h3>Makabansa</h3>
+        </div>
+
+    </div>
+</section>
+
+<!-- FACILITIES -->
+<section class="section dark-section" id="facilities">
+
+    <div class="label">04 — CAMPUS FACILITIES</div>
+
+    <h2>Facilities in TNHS</h2>
+
+    <p>
+        Explore the offices and learning spaces that support
+        the school community.
+    </p>
+
+    <div class="facilities-carousel" aria-label="TNHS facilities carousel">
+    <div class="facilities" id="facilitiesTrack">
+
+        <div class="facility">
+            <img src="principalOffice.jpg" alt="Principal's Office">
+            <h3>Principal’s Office</h3>
+        </div>
+
+        <div class="facility">
+            <img src="guidance.jpg" alt="Guidance Office">
+            <h3>Guidance Office</h3>
+        </div>
+
+        <div class="facility">
+            <img src="clinic.jpg" alt="TNHS Clinic">
+            <h3>Clinic</h3>
+        </div>
+
+        <div class="facility">
+            <img src="gr10.jpg" alt="Grade 10 Building">
+            <h3>Grade 10 Building</h3>
+        </div>
+
+        <div class="facility">
+            <img src="gr7.jpg" alt="Grade 7 Building">
+            <h3>Grade 7</h3>
+        </div>
+
+        <div class="facility">
+            <img src="gr8.jpg" alt="Grade 8 Building">
+            <h3>Grade 8</h3>
+        </div>
+
+        <div class="facility">
+            <img src="GreenLab.jpg" alt="GreenLab">
+            <h3>GreenLab</h3>
+        </div>
+
+    </div>
+
+    <button class="carousel-button prev" type="button" aria-label="Previous facility">&#10094;</button>
+    <button class="carousel-button next" type="button" aria-label="Next facility">&#10095;</button>
+    <div class="carousel-dots" role="tablist" aria-label="Choose a facility"></div>
+    </div>
+</section>
+
+<!-- PRINCIPAL -->
+<section class="section principal" id="principal">
+
+    <div class="label">05 — SCHOOL LEADERSHIP</div>
+
+    <h2>Our School Principal</h2>
+
+    <img src="principal.jpg"
+         alt="School Principal">
+
+    <h3>Mr. Nolito R. Estilles</h3>
+
+    <p>Current School Principal</p>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <h3>TAGUIG NATIONAL HIGH SCHOOL</h3>
+
+    <p><span>LOOKING BEYOND THE HORIZON</span></p>
+
+    <p>
+        Empowering learners. Building futures.
+    </p>
+
+    <p>© 2026 Taguig National High School</p>
+</footer>
+
+<script>
+const facilityTrack = document.getElementById('facilitiesTrack');
+const facilities = Array.from(facilityTrack.querySelectorAll('.facility'));
+const dotsContainer = document.querySelector('.carousel-dots');
+const previousButton = document.querySelector('.carousel-button.prev');
+const nextButton = document.querySelector('.carousel-button.next');
+const carousel = document.querySelector('.facilities-carousel');
+let currentFacility = 0;
+let carouselTimer;
+
+facilities.forEach((facility, index) => {
+    facility.setAttribute('aria-label', `${index + 1} of ${facilities.length}`);
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'carousel-dot';
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', `Show ${facility.querySelector('h3').textContent}`);
+    dot.addEventListener('click', () => showFacility(index));
+    dotsContainer.appendChild(dot);
+});
+
+function showFacility(index) {
+    currentFacility = (index + facilities.length) % facilities.length;
+    facilityTrack.scrollTo({
+        left: currentFacility * facilityTrack.clientWidth,
+        behavior: 'smooth'
+    });
+
+    document.querySelectorAll('.carousel-dot').forEach((dot, dotIndex) => {
+        dot.classList.toggle('active', dotIndex === currentFacility);
+        dot.setAttribute('aria-selected', dotIndex === currentFacility ? 'true' : 'false');
+    });
+}
+
+function startCarousel() {
+    stopCarousel();
+    carouselTimer = setInterval(() => showFacility(currentFacility + 1), 5000);
+}
+
+function stopCarousel() {
+    if (carouselTimer) clearInterval(carouselTimer);
+}
+
+previousButton.addEventListener('click', () => {
+    showFacility(currentFacility - 1);
+    startCarousel();
+});
+
+nextButton.addEventListener('click', () => {
+    showFacility(currentFacility + 1);
+    startCarousel();
+});
+
+carousel.addEventListener('mouseenter', stopCarousel);
+carousel.addEventListener('mouseleave', startCarousel);
+carousel.addEventListener('keydown', event => {
+    if (event.key === 'ArrowLeft') previousButton.click();
+    if (event.key === 'ArrowRight') nextButton.click();
+});
+
+facilityTrack.addEventListener('scroll', () => {
+    const index = Math.round(facilityTrack.scrollLeft / facilityTrack.clientWidth);
+    if (index !== currentFacility) {
+        currentFacility = index;
+        document.querySelectorAll('.carousel-dot').forEach((dot, dotIndex) => {
+            dot.classList.toggle('active', dotIndex === index);
+        });
+    }
+});
+
+showFacility(0);
+startCarousel();
+</script>
+
+</body>
+</html>
